@@ -15,9 +15,16 @@ function convertToRoman(num) {
     1000: "M"
   }
 
+  let romanized = "";
   const numeralKeys = Object.keys(numerals).reverse();
-  console.log(numeralKeys);
- return num;
+
+  numeralKeys.forEach(key => {
+    while(key <= num){
+      romanized += numerals[key];
+      num -= key;
+    }
+  });
+ return romanized;
 }
 
 convertToRoman(36);
